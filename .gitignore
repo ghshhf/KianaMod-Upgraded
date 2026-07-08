@@ -1,5 +1,6 @@
 *.class
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 classes/
 build/
 out/
@@ -7,5 +8,6 @@ ext/
 tools/*.jar
 tools/LoadTest.class
 tools/LoadTest.java
+.gradle/
 .DS_Store
 Thumbs.db

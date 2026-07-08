@@ -19,71 +19,20 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Download modding dependencies
-        run: |
-          mkdir -p lib
-          # StS desktop jar from community Maven mirror
-          curl -sL -o lib/desktop-1.0.jar \
-            "https://github.com/daviscook477/BaseMod/releases/download/v5.29.0/desktop-1.0.jar" || \
-          curl -sL -o lib/desktop-1.0.jar \
-            "https://maven.thunderbreaker.io/com/megacrit/cardcrawl/desktop/v1.0/desktop-v1.0.jar" || \
-          echo "WARNING: desktop-1.0.jar not available; stubs will be used"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
 
-          # BaseMod jar
-          curl -sL -o lib/BaseMod.jar \
-            "https://github.com/daviscook477/BaseMod/releases/download/v5.29.0/BaseMod.jar" || \
-          echo "WARNING: BaseMod.jar not available"
-
-          # ModTheSpire jar
-          curl -sL -o lib/ModTheSpire.jar \
-            "https://github.com/kiooeht/ModTheSpire/releases/download/v3.30.0/ModTheSpire.jar" || \
-          echo "WARNING: ModTheSpire.jar not available"
-
-      - name: Collect source files
-        run: |
-          find src -name "*.java" | sort > sources.txt
-          echo "Source files: $(wc -l < sources.txt)"
+      - name: Grant execute permission
+        run: chmod +x gradlew
 
       - name: Compile with --release 8
-        run: |
-          CLASSES_DIR=build/classes
-          mkdir -p "$CLASSES_DIR"
-          CP="lib/desktop-1.0.jar:lib/BaseMod.jar:lib/ModTheSpire.jar"
-          # If any jars missing, try without them
-          for jar in lib/*.jar; do [ -f "$jar" ] && CP="$CP:$jar"; done
-          javac -encoding UTF-8 --release 8 -proc:none \
-            -cp "$CP" \
-            -d "$CLASSES_DIR" \
-            @sources.txt 2>&1 || {
-            echo "=== Compilation failed ==="
-            exit 1
-          }
-          echo "Compilation successful!"
-          echo "Class files: $(find "$CLASSES_DIR" -name '*.class' | wc -l)"
+        run: ./gradlew compileJava
 
-      - name: Verify Java 8 bytecode
-        run: |
-          CLASSES_DIR=build/classes
-          ERRORS=0
-          COUNT=0
-          while IFS= read -r f; do
-            COUNT=$((COUNT + 1))
-            # Java class file: bytes[6..7] = major_version (big-endian)
-            MAJOR=$(xxd -s 6 -l 2 -p "$f" | tail -c 2)
-            if [ "$MAJOR" != "34" ]; then
-              echo "WARN: ${f#${CLASSES_DIR}/} has major version $((16#$MAJOR))"
-              ERRORS=$((ERRORS + 1))
-            fi
-          done < <(find "$CLASSES_DIR" -name '*.class')
-          echo "Verified $COUNT class files — major version 52 (Java 8)"
-          if [ "$ERRORS" -gt 0 ]; then
-            echo "ERROR: $ERRORS class file(s) have wrong major version"
-            exit 1
-          fi
-          echo "All class files are Java 8 compatible ✓"
+      - name: Verify Java 8 bytecode compatibility
+        run: ./gradlew verifyJava8
 
       - name: Upload compiled classes as artifact
         uses: actions/upload-artifact@v4
         with:
           name: kiana-mod-classes
-          path: build/classes/
+          path: build/classes/java/main/
