@@ -7,13 +7,13 @@ version = '1.1.0'
 
 repositories {
     mavenCentral()
-    maven { url 'https://maven.thunderbreaker.io' }
+    flatDir {
+        dirs 'lib'
+    }
 }
 
 dependencies {
-    compileOnly 'com.megacrit.cardcrawl:desktop:v1.0'
-    compileOnly 'basemod:BaseMod:5.29.0'
-    compileOnly 'ModTheSpire:ModTheSpire:3.23.2'
+    compileOnly fileTree(dir: 'lib', include: ['*.jar'])
 }
 
 sourceSets {
@@ -42,7 +42,7 @@ task verifyJava8 {
             // Class file: bytes[6] and bytes[7] = major_version (big-endian)
             def major = ((bytes[6] as int) << 8) | (bytes[7] as int)
             if (major != 52) {
-                println "WARN: ${name} — major version ${major} (expected 52 for Java 8)"
+                println "WARN: $f — major version $major (expected 52 for Java 8)"
                 errors++
             }
         }
