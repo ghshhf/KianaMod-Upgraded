@@ -1,0 +1,84 @@
+classDiagram
+    direction TB
+
+    class CustomCard {
+        <<external: basemod.abstracts.CustomCard>>
+        +String cardID
+        +int baseDamage
+        +int damage
+        +int baseMagicNumber
+        +int magicNumber
+        +int baseBlock
+        +int block
+        +int cost
+        +boolean exhaust
+        +boolean retain
+        +int honkaiGain  // 约定新增字段：崩坏能获取量（常量卡可字面量）
+        +use(AbstractPlayer p, AbstractMonster m)*
+        +upgrade()*
+        #super(String ID, String NAME, String IMG, int COST, String DESC, CardType TYPE, CardColor COLOR, CardRarity RARITY, CardTarget TARGET)
+    }
+
+    class BurnOutPower {
+        <<optional external power: kianamod.powers>>
+        +onEnergyRecharge()  // 回合开始：自伤 + addHonkai(p,2)
+    }
+
+    class FlameCardUtils {
+        <<optional helper: kianamod.util.FlameCardUtils>>
+        +getHonkai(AbstractCreature c) int
+        +addHonkai(AbstractCreature c, int n) AbstractGameAction
+        +reduceHonkai(AbstractCreature c, int n) AbstractGameAction
+        +isFlameStance(AbstractPlayer p) boolean
+    }
+
+    %% 12 张火焰形态卡，全部继承 CustomCard
+    FlamePursuit --|> CustomCard
+    CrimsonCharge --|> CustomCard
+    PassFlame --|> CustomCard
+    SkyfireDraw --|> CustomCard
+    EmberRekindle --|> CustomCard
+    BurnOut --|> CustomCard
+    ValkyrieOath --|> CustomCard
+    FlameStorm --|> CustomCard
+    Cinder --|> CustomCard
+    PrairieFire --|> CustomCard
+    FlameDragonBreak --|> CustomCard
+    GuardianFlame --|> CustomCard
+
+    %% 复用的既有 Power / Action（外部类，仅作依赖标注）
+    FlameCardUtils ..> HonkaiEnergy : read/add/reduce
+    CustomCard ..> HonkaiEnergy : ApplyPowerAction
+    CustomCard ..> BurnPower : ApplyPowerAction
+    CustomCard ..> ProtectionPower : ApplyPowerAction
+    CustomCard ..> EternalBlazingFlamePower : ApplyPowerAction
+    CustomCard ..> VulnerablePower : ApplyPowerAction
+    CustomCard ..> FlameStance : instanceof 判定
+    CustomCard ..> DamageAction : 单体伤害
+    CustomCard ..> DamageAllEnemiesAction : 群体伤害
+    CustomCard ..> GainBlockAction : 格挡
+    CustomCard ..> DrawCardAction : 抽牌
+    CustomCard ..> ReducePowerAction : 削减崩坏能
+    BurnOut ..> BurnOutPower : ApplyPowerAction(方案A)
+    BurnOutPower ..> BurnPower : 自伤(每回合)
+    BurnOutPower ..> HonkaiEnergy : addHonkai(p,2)(每回合)
+
+    class HonkaiEnergy {
+        <<external power: kianamod.powers>>
+        +POWER_ID : String
+    }
+    class BurnPower {
+        <<external power: kianamod.powers>>
+    }
+    class ProtectionPower {
+        <<external power: kianamod.powers>>
+    }
+    class EternalBlazingFlamePower {
+        <<external power: kianamod.powers>>
+    }
+    class VulnerablePower {
+        <<external vanilla: com.megacrit.cardcrawl.powers>>
+    }
+    class FlameStance {
+        <<external stance: kianamod.stances>>
+    }

@@ -1,0 +1,91 @@
+%% ============================================================
+%% 序列图 1：启动期卡牌与本地化字符串注册
+%% ============================================================
+sequenceDiagram
+    participant Mod as ExampleMod (EditCardsSubscriber)
+    participant BM as BaseMod
+    participant Reg as CardRegistry
+    participant LS as languagePack (CardStrings)
+
+    Note over Mod: receiveEditCards()
+    Mod->>BM: BaseMod.addCard(new FlamePursuit())
+    BM->>Reg: register card by ID "ExampleMod:FlamePursuit"
+    Mod->>BM: BaseMod.addCard(new CrimsonCharge())
+    Note over Mod: ... 重复 12 次（每张新卡一次 addCard）
+
+    Note over Mod: receiveEditStrings()
+    Mod->>BM: BaseMod.loadCustomStrings(CardStrings.class, cards.json)
+    BM->>LS: 载入 ZHS/cards.json 中 12 条 NAME/DESCRIPTION
+    Note over LS: 键 "ExampleMod:<ClassName>" 与 makeID 一致
+
+%% ============================================================
+%% 序列图 2：典型攻击卡 use() —— 以 炎之追击 FlamePursuit 为例
+%% ============================================================
+sequenceDiagram
+    participant P as AbstractPlayer
+    participant C as FlamePursuit
+    participant AM as actionManager (addToBottom)
+    participant DM as DamageAction
+    participant AP as ApplyPowerAction
+
+    P->>C: use(p, m)
+    C->>C: isFlameStance(p)?  // p.stance instanceof FlameStance
+    alt 处于薪炎之律者
+        C->>AM: addToBottom(ApplyPowerAction(p, m, new VulnerablePower(m,2,false), 2))
+    end
+    C->>AM: addToBottom(DamageAction(p, m, 8, AttackType.FIRE))
+    C->>AM: addToBottom(ApplyPowerAction(p, p, new HonkaiEnergy(p,1), 1))
+
+%% ============================================================
+%% 序列图 3：消耗崩坏能循环 —— 以 炎龙破 FlameDragonBreak 为例
+%% ============================================================
+sequenceDiagram
+    participant P as AbstractPlayer
+    participant C as FlameDragonBreak
+    participant AM as actionManager (addToBottom)
+    participant DM as DamageAction
+    participant RP as ReducePowerAction
+
+    P->>C: use(p, m)
+    C->>AM: addToBottom(DamageAction(p, m, 16, AttackType.FIRE))
+    C->>C: n = getHonkai(p).amount  // p.getPower(HonkaiEnergy.POWER_ID).amount
+    loop i = 1..n  (每消耗 1 点崩坏能)
+        C->>AM: addToBottom(DamageAction(p, m, +2, AttackType.FIRE))
+    end
+    C->>AM: addToBottom(ReducePowerAction(p, p, HonkaiEnergy.POWER_ID, n))
+
+%% ============================================================
+%% 序列图 4：群体伤害 + 崩坏能阈值 —— 以 天火出鞘 SkyfireDraw 为例
+%% ============================================================
+sequenceDiagram
+    participant P as AbstractPlayer
+    participant C as SkyfireDraw
+    participant AM as actionManager (addToBottom)
+    participant DAE as DamageAllEnemiesAction
+    participant AP as ApplyPowerAction
+
+    P->>C: use(p, m)
+    C->>C: honkai = getHonkai(p).amount
+    alt honkai >= 5
+        C->>AM: addToBottom(DamageAllEnemiesAction(p, 20, FIRE, false))
+    else
+        C->>AM: addToBottom(DamageAllEnemiesAction(p, 14, FIRE, false))
+    end
+    C->>AM: addToBottom(ApplyPowerAction(p, p, new HonkaiEnergy(p,2), 2))
+
+%% ============================================================
+%% 序列图 5：燃尽 BurnOut 回合开始钩子（方案 A，最高实现风险）
+%% ============================================================
+sequenceDiagram
+    participant Turn as 玩家回合开始(onEnergyRecharge)
+    participant BP as BurnOutPower
+    participant AM as actionManager (addToBottom)
+    participant AP as ApplyPowerAction
+    participant HE as HonkaiEnergy
+
+    Turn->>BP: onEnergyRecharge()
+    BP->>AM: addToBottom(ApplyPowerAction(p, p, new BurnPower(p, selfDmg), selfDmg))
+    Note over BP: 自伤 selfDmg(3/4) 火焰元素伤害
+    BP->>AM: addToBottom(ApplyPowerAction(p, p, new HonkaiEnergy(p,2), 2))
+    AM->>HE: 每回合获得 2 点崩坏能
+    Note over BP: 方案 B 则跳过本钩子，改为打出时一次性给 2 点

@@ -1,0 +1,11 @@
+*.class
+*.jar
+classes/
+build/
+out/
+ext/
+tools/*.jar
+tools/LoadTest.class
+tools/LoadTest.java
+.DS_Store
+Thumbs.db

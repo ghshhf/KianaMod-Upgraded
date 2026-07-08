@@ -1,0 +1,58 @@
+{
+  "ExampleMod:HeavenFireMark": {
+    "NAME": "天火圣痕",
+    "FLAVOR": "以火焰惩戒世间一切之恶。",
+    "DESCRIPTIONS": [
+      "战斗开始时，对所有敌人施加 #b2 层 #y烧伤 。"
+    ]
+  },
+  "ExampleMod:VoidRealm": {
+    "NAME": "空无之境",
+    "FLAVOR": "虚数之树的彼岸，空之律者的王座。",
+    "DESCRIPTIONS": [
+      "进入 #y空之律者 形态时，额外抽 #b2 张牌。"
+    ]
+  },
+  "ExampleMod:FinalityOath": {
+    "NAME": "终焉的约定",
+    "FLAVOR": "纵使未来注定终结，此约依旧闪耀。",
+    "DESCRIPTIONS": [
+      "进入 #y终焉之律者 形态时，获得 #b20 点最大生命值并治疗 #b20 点生命。"
+    ]
+  },
+  "ExampleMod:Moonlight": {
+    "NAME": "月煌",
+    "FLAVOR": "月光之下，少女的剑闪耀如昼。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，获得 #b1 点 #y崩坏能 。"
+    ]
+  },
+  "ExampleMod:TruthKey": {
+    "NAME": "真理之钥",
+    "FLAVOR": "于此，真理之门将为汝敞开。",
+    "DESCRIPTIONS": [
+      "进入非中立形态时，获得 #b1 点 #y崩坏能 。"
+    ]
+  },
+  "ExampleMod:BloodRose": {
+    "NAME": "血色玫瑰",
+    "FLAVOR": "荆棘丛中独绽的殷红之华。",
+    "DESCRIPTIONS": [
+      "回合开始时，若生命值低于 #b50% ，获得 #b1 点 #y崩坏能 。"
+    ]
+  },
+  "ExampleMod:BlackWhiteFlower": {
+    "NAME": "黑渊白花",
+    "FLAVOR": "创生与毁灭——此即黑渊白花之名。",
+    "DESCRIPTIONS": [
+      "受到致命伤害时，消耗全部 #y崩坏能 ，免疫此次死亡并回复至 #b1 点生命值。每场战斗仅触发一次。"
+    ]
+  },
+  "ExampleMod:EdenStar": {
+    "NAME": "伊甸之星",
+    "FLAVOR": "乐园的繁星，坠落于彼方。",
+    "DESCRIPTIONS": [
+      "每回合开始时，获得 #b1 点 #y崩坏能 。"
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "ExampleMod:FlamePursuit": {
+    "NAME": "炎之追击",
+    "DESCRIPTION": "造成!D!点伤害。若处于examplemod:薪炎之律者，给予目标!M!层examplemod:易伤。获得1点examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。若处于examplemod:薪炎之律者，给予目标!M!层examplemod:易伤。获得1点examplemod:崩坏能。"
+  },
+  "ExampleMod:CrimsonCharge": {
+    "NAME": "赤焰冲锋",
+    "DESCRIPTION": "造成!D!点伤害!M!次。获得2点examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害!M!次。获得2点examplemod:崩坏能。"
+  },
+  "ExampleMod:PassFlame": {
+    "NAME": "薪火相传",
+    "DESCRIPTION": "获得等于当前examplemod:崩坏能层数!M!倍的examplemod:格挡。获得1点examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "获得等于当前examplemod:崩坏能层数!M!倍的examplemod:格挡。获得1点examplemod:崩坏能。"
+  },
+  "ExampleMod:SkyfireDraw": {
+    "NAME": "天火出鞘",
+    "DESCRIPTION": "对所有敌人造成!D!点伤害。若examplemod:崩坏能大于等于5点，改为造成!M!点伤害。获得2点examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成!D!点伤害。若examplemod:崩坏能大于等于5点，改为造成!M!点伤害。获得2点examplemod:崩坏能。"
+  },
+  "ExampleMod:EmberRekindle": {
+    "NAME": "灰烬重燃",
+    "DESCRIPTION": "抽!M!张牌。获得2点examplemod:崩坏能。examplemod:消耗。",
+    "UPGRADE_DESCRIPTION": "抽!M!张牌。获得2点examplemod:崩坏能。examplemod:消耗。"
+  },
+  "ExampleMod:BurnOut": {
+    "NAME": "燃尽",
+    "DESCRIPTION": "回合开始时，对自己施加!M!点examplemod:火焰元素伤害，并获得2点examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "回合开始时，对自己施加!M!点examplemod:火焰元素伤害，并获得2点examplemod:崩坏能。"
+  },
+  "ExampleMod:ValkyrieOath": {
+    "NAME": "女武神的誓言",
+    "DESCRIPTION": "获得!M!层examplemod:永燃的薪火。",
+    "UPGRADE_DESCRIPTION": "获得!M!层examplemod:永燃的薪火。"
+  },
+  "ExampleMod:FlameStorm": {
+    "NAME": "烈焰风暴",
+    "DESCRIPTION": "对所有敌人造成!D!点伤害!M!次。获得1点examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成!D!点伤害!M!次。获得1点examplemod:崩坏能。"
+  },
+  "ExampleMod:Cinder": {
+    "NAME": "余烬",
+    "DESCRIPTION": "获得!M!点examplemod:崩坏能。examplemod:保留。",
+    "UPGRADE_DESCRIPTION": "获得!M!点examplemod:崩坏能。examplemod:保留。"
+  },
+  "ExampleMod:PrairieFire": {
+    "NAME": "燎原",
+    "DESCRIPTION": "对所有敌人施加!M!层examplemod:火焰元素伤害。获得1点examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "对所有敌人施加!M!层examplemod:火焰元素伤害。获得1点examplemod:崩坏能。"
+  },
+  "ExampleMod:FlameDragonBreak": {
+    "NAME": "炎龙破",
+    "DESCRIPTION": "造成!D!点伤害。然后消耗全部examplemod:崩坏能，每消耗1点额外造成!M!点examplemod:火焰元素伤害。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。然后消耗全部examplemod:崩坏能，每消耗1点额外造成!M!点examplemod:火焰元素伤害。"
+  },
+  "ExampleMod:GuardianFlame": {
+    "NAME": "守护之焰",
+    "DESCRIPTION": "获得!B!点examplemod:格挡和!M!层examplemod:庇护。若处于examplemod:薪炎之律者，额外获得4点examplemod:格挡。",
+    "UPGRADE_DESCRIPTION": "获得!B!点examplemod:格挡和!M!层examplemod:庇护。若处于examplemod:薪炎之律者，额外获得4点examplemod:格挡。"
+  },
+  "ExampleMod:VoidSlash": {
+    "NAME": "虚空裂斩",
+    "DESCRIPTION": "造成!D!点伤害。若处于examplemod:空之律者，伤害无视护甲且造成!D!点伤害。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。若处于examplemod:空之律者，伤害无视护甲且造成!D!点伤害。"
+  },
+  "ExampleMod:SpaceFold": {
+    "NAME": "空间折叠",
+    "DESCRIPTION": "获得!M!点examplemod:崩坏能。抽 2 张牌。",
+    "UPGRADE_DESCRIPTION": "获得!M!点examplemod:崩坏能。抽 3 张牌。"
+  },
+  "ExampleMod:QuantumTunnel": {
+    "NAME": "量子隧道",
+    "DESCRIPTION": "获得!M!点examplemod:崩坏能。获得 1 层examplemod:加速。examplemod:消耗。",
+    "UPGRADE_DESCRIPTION": "获得!M!点examplemod:崩坏能。获得 2 层examplemod:加速。examplemod:消耗。"
+  },
+  "ExampleMod:GravitySingularity": {
+    "NAME": "引力奇点",
+    "DESCRIPTION": "对所有敌人施加!M!层examplemod:眩晕积蓄。获得 2 点examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "对所有敌人施加!M!层examplemod:眩晕积蓄。获得 2 点examplemod:崩坏能。"
+  },
+  "ExampleMod:ImaginaryFill": {
+    "NAME": "虚数填充",
+    "DESCRIPTION": "获得!M!点examplemod:崩坏能。获得 1 层examplemod:易伤。",
+    "UPGRADE_DESCRIPTION": "获得!M!点examplemod:崩坏能。获得 1 层examplemod:易伤。"
+  },
+  "ExampleMod:SubspaceWalker": {
+    "NAME": "亚空行者",
+    "DESCRIPTION": "获得!M!层examplemod:加速和!M!层examplemod:闪避。",
+    "UPGRADE_DESCRIPTION": "获得!M!层examplemod:加速和!M!层examplemod:闪避。"
+  },
+  "ExampleMod:DimensionBanish": {
+    "NAME": "维度放逐",
+    "DESCRIPTION": "造成!D!点伤害。若处于examplemod:空之律者，获得!M!层examplemod:闪避。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。若处于examplemod:空之律者，获得!M!层examplemod:闪避。"
+  },
+  "ExampleMod:StellarOrbit": {
+    "NAME": "星轨",
+    "DESCRIPTION": "每回合首次打出卡牌时，对随机敌人造成!M!点伤害。",
+    "UPGRADE_DESCRIPTION": "每回合首次打出卡牌时，对随机敌人造成!M!点伤害。"
+  },
+  "ExampleMod:VoidDrain": {
+    "NAME": "虚空汲取",
+    "DESCRIPTION": "造成!D!点伤害。获得已造成伤害值一半的examplemod:格挡。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。获得已造成伤害值一半的examplemod:格挡。"
+  },
+  "ExampleMod:RiftWorld": {
+    "NAME": "裂界",
+    "DESCRIPTION": "对所有敌人造成!D!点伤害 2 次。获得 1 点examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成!D!点伤害 2 次。获得 1 点examplemod:崩坏能。"
+  },
+  "ExampleMod:TimeShift": {
+    "NAME": "时空错位",
+    "DESCRIPTION": "获得!M!层examplemod:时空裂隙。获得 2 点examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "获得!M!层examplemod:时空裂隙。获得 2 点examplemod:崩坏能。"
+  },
+  "ExampleMod:SingularityBurst": {
+    "NAME": "奇点爆发",
+    "DESCRIPTION": "消耗全部examplemod:崩坏能。每消耗 1 点造成 5 点伤害。若处于examplemod:空之律者，伤害翻倍。",
+    "UPGRADE_DESCRIPTION": "消耗全部examplemod:崩坏能。每消耗 1 点造成 7 点伤害。若处于examplemod:空之律者，伤害翻倍。"
+  },
+  "ExampleMod:FinalJudgment": {
+    "NAME": "终焉裁决",
+    "DESCRIPTION": "造成 !D! 点伤害。若处于examplemod:终焉之律者，改为造成 30(40) 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。若处于examplemod:终焉之律者，改为造成 40 点伤害。"
+  },
+  "ExampleMod:BlazeStance": {
+    "NAME": "时燧姿态",
+    "DESCRIPTION": "获得 !M! 点examplemod:崩坏能。本回合获得 !M! 点力量。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点examplemod:崩坏能。本回合获得 !M! 点力量。"
+  },
+  "ExampleMod:MoonStance": {
+    "NAME": "月锋姿态",
+    "DESCRIPTION": "获得 !M! 点examplemod:崩坏能。获得 !M! 层examplemod:加速。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点examplemod:崩坏能。获得 !M! 层examplemod:加速。"
+  },
+  "ExampleMod:TimeTide": {
+    "NAME": "轮回时澜",
+    "DESCRIPTION": "每回合开始时，获得 !M! 层examplemod:时空裂隙。",
+    "UPGRADE_DESCRIPTION": "每回合开始时，获得 !M! 层examplemod:时空裂隙。"
+  },
+  "ExampleMod:AbsoluteTimeBreak": {
+    "NAME": "绝对时空断裂",
+    "DESCRIPTION": "获得 !M! 层examplemod:时空裂隙。获得 5 点examplemod:崩坏能。获得 !B! 层examplemod:庇护。examplemod:消耗。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层examplemod:时空裂隙。获得 7 点examplemod:崩坏能。获得 !B! 层examplemod:庇护。examplemod:消耗。"
+  },
+  "ExampleMod:FinalStance": {
+    "NAME": "终末姿态",
+    "DESCRIPTION": "进入examplemod:终焉之律者形态。每回合开始时获得 !M! 点examplemod:崩坏能并对全体敌人造成 3 点火焰伤害。",
+    "UPGRADE_DESCRIPTION": "进入examplemod:终焉之律者形态。每回合开始时获得 !M! 点examplemod:崩坏能并对全体敌人造成 5 点火焰伤害。"
+  },
+  "ExampleMod:FinalResolution": {
+    "NAME": "跨越终焉的破决",
+    "DESCRIPTION": "对所有敌人造成 !D! 点火焰伤害 !M! 次。examplemod:消耗。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点火焰伤害 !M! 次。examplemod:消耗。"
+  },
+  "ExampleMod:VoidAscension": {
+    "NAME": "虚界升变",
+    "DESCRIPTION": "获得 1 点examplemod:崩坏能。若处于examplemod:终焉之律者，额外获得 !M! 点examplemod:崩坏能。examplemod:保留。",
+    "UPGRADE_DESCRIPTION": "获得 1 点examplemod:崩坏能。若处于examplemod:终焉之律者，额外获得 !M! 点examplemod:崩坏能。examplemod:保留。"
+  },
+  "ExampleMod:MemoryFeather": {
+    "NAME": "以此仙忆化羽",
+    "DESCRIPTION": "每回合开始时，获得 !M! 层examplemod:崩坏能。",
+    "UPGRADE_DESCRIPTION": "每回合开始时，获得 !M! 层examplemod:崩坏能。"
+  },
+  "ExampleMod:MoonlightBlade": {
+    "NAME": "月如白练",
+    "DESCRIPTION": "造成 !D! 点伤害。若处于examplemod:终焉之律者，再造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。若处于examplemod:终焉之律者，再造成 !D! 点伤害。"
+  }
+}
